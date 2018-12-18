@@ -1,5 +1,7 @@
 import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import {Post} from '../post.model';
+import {NgForm} from '@angular/forms';
+import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 @Component({
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
@@ -16,11 +18,14 @@ export class PostCreateComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddPost() {
-const post: Post = {
-  title: this.enteredTitle,
-  content: this.enteredContent
+  onAddPost(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+  const post: Post = {
+  title: form.value.title,
+  content: form.value.content
 };
 this.postCreated.emit(post);
-  }
+}
 }
