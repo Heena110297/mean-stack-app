@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule, MatToolbarModule, MatExpansionModule, MatCardModule, MatButtonModule} from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
+import { PostsService } from './posts/posts.service';
 @NgModule({
   declarations: [
     AppComponent,
