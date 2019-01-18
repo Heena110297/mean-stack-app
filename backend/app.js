@@ -43,22 +43,28 @@ app.use((req,res,next) => {
 });
 
 app.get('/api/posts',(req,res,next) => {
- const posts=[
-   {
-     id: 'dwkhdu12',
-     title: 'First server-side post',
-     content: 'this is coming from the server'
-   },
-   {
-     id:"23uh3uo2",
-     title:"secured post",
-     conetnt: "This is coming"
-   }
- ];
-  res.status(200).json({
-    message: "Post fetched",
-    posts :posts
-  });
+
+     Post.find()
+     .then(documents=>{
+      res.status(200).json({
+        message: "Post fetched",
+        posts :documents
+      });
+    });
+
+  //  const posts=[
+//    {
+//      id: 'dwkhdu12',
+//      title: 'First server-side post',
+//      content: 'this is coming from the server'
+//    },
+//    {
+//      id:"23uh3uo2",
+//      title:"secured post",
+//      conetnt: "This is coming"
+//    }
+//  ];
+
 });
 
 module.exports = app ;
