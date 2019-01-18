@@ -1,7 +1,18 @@
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const Post = require('./models/post');
+mongoose.connect("mongodb+srv://user-heena-11:PBuRQ45YJdfRfguB@cluster0-n05wc.mongodb.net/test?retryWrites=true")
+.then(()=>
+{
+  console.log("Connected to database !"
+  )
+})
+.catch(()=>{
+  console.log( "Connection Failed");
+
+});
 app.use((req,res,next)=> {
   res.setHeader('Access-Control-Allow-Origin',"*");
   res.setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With,Content-Type,Accept");
