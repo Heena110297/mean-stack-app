@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
+const Post = require('./models/post');
 app.use((req,res,next)=> {
   res.setHeader('Access-Control-Allow-Origin',"*");
   res.setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With,Content-Type,Accept");
@@ -11,7 +12,11 @@ app.use((req,res,next)=> {
 app.use(bodyParser.json()); //valid express middleware for parsing json data
 app.use(bodyParser.urlencoded({extended:false}))//will parse urll encoded dat
 app.post("/api/posts",(req,res,next)=>{
-  const post = req.body ;
+
+ const post = new Post({
+title:req.body.title,
+content : req.body.content
+ }) ;//const post = req.body ;
   console.log(post);
   res.status(201).json({
     message:"Post added successfully"
@@ -38,7 +43,7 @@ app.get('/api/posts',(req,res,next) => {
    }
  ];
   res.status(200).json({
-    messgae: "Post fetched",
+    message: "Post fetched",
     posts :posts
   });
 });
