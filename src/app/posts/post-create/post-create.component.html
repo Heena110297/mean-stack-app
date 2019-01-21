@@ -10,7 +10,7 @@
     matInput
     type="text"
     name="title"
-   ngModel
+   [ngModel]="post?.title"
    required
    placeholder="Post Title"
    minlength="3" >
@@ -21,7 +21,7 @@
     matInput
     name="content"
     rows="6"
-   ngModel
+   [ngModel]="post?.content"
    placeholder="Post Content"
    required ></textarea>
    <mat-error>Please Enter appropriate content</mat-error>
