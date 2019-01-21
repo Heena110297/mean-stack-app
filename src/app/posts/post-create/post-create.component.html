@@ -1,6 +1,7 @@
 
 <mat-card>
-  <form #postForm="ngForm" (submit)="onAddPost(postForm)">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form #postForm="ngForm" *ngIf = "!isLoading" (submit)="onAddPost(postForm)">
   <mat-card-title
    color="primary">
     My New Post
