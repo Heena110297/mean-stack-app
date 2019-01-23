@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
 });
 const router =  express.Router();
 const Post = require("../models/post")
-router.post("",multer(storage).single("image"),(req,res,next)=>{
+router.post("",multer({storage: storage}).single("image"),(req,res,next)=>{
 
   const post = new Post({
  title:req.body.title,

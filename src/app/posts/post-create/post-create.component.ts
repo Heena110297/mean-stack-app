@@ -61,7 +61,7 @@ private postId: string;
     // console.log(this.form);
     const reader = new FileReader();
     reader.onload = () => {
-      this.imagePreview = reader.result;
+      this.imagePreview  = reader.result;
     };
     reader.readAsDataURL(file);
   }
@@ -71,7 +71,10 @@ private postId: string;
     }
     this.isLoading = true;
     if (this.mode === 'create') {
-    this.postsService.addPost(this.form.value.title , this.form.value.content);
+    this.postsService.addPost
+       (this.form.value.title,
+       this.form.value.content,
+       this.form.value.image);
     } else {
       this.postsService.updatePost(this.postId, this.form.value.title, this.form.value.content);
     }
