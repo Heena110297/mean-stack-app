@@ -6,7 +6,8 @@ const postSchema = mongoose.Schema({
   content:{
     type: String,
     required:true
-  }
+  },
+  imagePath: { type: String, required: true}
   //node js and javascript in general is uppercase S
 
 });

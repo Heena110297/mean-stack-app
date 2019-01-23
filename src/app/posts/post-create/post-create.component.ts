@@ -37,7 +37,7 @@ private postId: string;
          this.isLoading = true;
          this.postsService.getpost(this.postId).subscribe(postData => {
             this.isLoading = false;
-           this.post = { id: postData._id, title: postData.title , content: postData.content };
+           this.post = { id: postData._id, title: postData.title , content: postData.content , imagePath: postData.imagePath };
            this.form.setValue(
             {
               'title': this.post.title,

@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -23,6 +24,6 @@ app.use((req,res,next)=> {
 });
 app.use(bodyParser.json()); //valid express middleware for parsing json data
 app.use(bodyParser.urlencoded({extended:false}))//will parse urll encoded dat
-
+app.use("/images",express.static(path.join("backend/images")));
 app.use("/api/posts",postRoutes);
 module.exports = app ;
